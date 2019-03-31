@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<!-- enables thymeleaf tags -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- holds Title and styles reference -->
+<head>
+    <meta charset="UTF-8">
+    <title>DM Tools</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/styles.css}"/>
+</head>
+
+
+<!-- holds app view -->
+<body>
+<div id="sidePanel" align="center">
+    <div class="left-href"><a href="./">HOME</a></div>
+    <div class="left-href"><a th:href="loot">LOOT</a></div>
+    <div class="left-href"><a th:href="names">NAMES</a></div>
+    <div class="left-href-chosen">DICE</div>
+</div>
+
+<div id="mainPanel" align="center">
+    <h1 class="titleBlock">Roll Dice</h1>
+    <div class="contentPanel">
+        <form th:action="dice" method="post">
+            <table class="componentTable">
+                <tr>
+                    <td>
+                        <label>Max die result</label>
+                    </td>
+                    <td>
+                        <label>Number of dice</label>
+                    </td>
+                    <td>
+                        <label>Bonus</label>
+                    </td>
+                    <td>
+                        <label>Target value</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="inputTextField" name="maxDieResult" type="number" max="1000" min="2" value="20" required>
+                    </td>
+                    <td>
+                        <input class="inputTextField" name="number" type="number" max="1000" min="-1000" value="1" required>
+                    </td>
+                    <td>
+                        <input class="inputTextField" name="bonus" type="number" max="1000" min="0" value="0" required>
+                    </td>
+                    <td>
+                        <input class="inputTextField" name="targetValue" type="number" max="2000" min="-1000" value="0" required>
+                    </td>
+                </tr>
+            </table>
+            <button class="submitButton">Roll Dice</button>
+            <div class="innerContentPanel">
+                <!-- th:utext allows html <tags> to be passed -->
+                <p th:utext="${message}"></p>
+            </div>
+        </form>
+    </div>
+</div>
+</body>

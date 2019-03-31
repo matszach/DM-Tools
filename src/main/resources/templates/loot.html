@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- enables thymeleaf tags -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- holds Title and styles reference -->
+<head>
+    <meta charset="UTF-8">
+    <title>DM Tools</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/styles.css}"/>
+</head>
+
+
+<!-- holds app view -->
+<body>
+<div id="sidePanel" align="center">
+    <div class="left-href"><a href="./">HOME</a></div>
+    <div class="left-href-chosen">LOOT</div>
+    <div class="left-href"><a th:href="names">NAMES</a></div>
+    <div class="left-href"><a th:href="dice">DICE</a></div>
+</div>
+
+<div id="mainPanel" align="center">
+    <h1 class="titleBlock">Generate Loot</h1>
+    <div class="contentPanel">
+        <form th:action="loot" method="post">
+            <table class="componentTable">
+                <tr>
+                    <td>
+                        <label>Amount in gold</label>
+                    </td>
+                    <td>
+                        <label>% in coin</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="inputTextField" name="value" type="number" max="999999" min="1">
+                    </td>
+                    <td>
+                        <input class="inputTextField" name="percentInCoin" type="number" max="100" min="0">
+                    </td>
+                </tr>
+            </table>
+            <button class="submitButton">Generate Loot</button>
+        </form>
+        <div class="innerContentPanel">
+            <p th:utext="${message}"></p>
+        </div>
+    </div>
+</div>
+</body>
+
+

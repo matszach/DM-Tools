@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<!-- enables thymeleaf tags -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- holds Title and styles reference -->
+<head>
+    <meta charset="UTF-8">
+    <title>DM Tools</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/styles.css}"/>
+</head>
+
+
+<!-- holds app view -->
+<body>
+<div id="sidePanel" align="center">
+    <div class="left-href"><a href="./">HOME</a></div>
+    <div class="left-href"><a th:href="loot">LOOT</a></div>
+    <div class="left-href-chosen">NAMES</div>
+    <div class="left-href"><a th:href="dice">DICE</a></div>
+</div>
+
+<div id="mainPanel" align="center">
+    <h1 class="titleBlock">Generate Names</h1>
+    <div class="contentPanel">
+        <form th:action="names" method="post">
+            <table class="componentTable">
+                <tr>
+                    <td>
+                        <label>Number</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="inputTextField" name="number" type="number" max="1000" min="1" value="1" required>
+                    </td>
+                </tr>
+            </table>
+            <button class="submitButton">Generate Names</button>
+            <div class="innerContentPanel">
+                <p th:text="${message}"></p>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+

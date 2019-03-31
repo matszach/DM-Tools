@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!-- enables thymeleaf tags -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- holds Title and styles reference -->
+<head>
+    <meta charset="UTF-8">
+    <title>DM Tools</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/styles.css}"/>
+    <!-- favicon located according to spring MVC project structure,
+    "resources/static/favicon.ico" is the scanned location -->
+</head>
+
+
+<!-- holds app view -->
+<body>
+    <div id="sidePanel" align="center">
+        <div class="left-href-chosen">HOME</div>
+        <div class="left-href"><a th:href="loot">LOOT</a></div>
+        <div class="left-href"><a th:href="names">NAMES</a></div>
+        <div class="left-href"><a th:href="dice">DICE</a></div>
+    </div>
+
+    <div id="mainPanel" align="center">
+        <h1 class="titleBlock">Welcome to LK's DM tools</h1>
+        <img class="image" id="homeD20" height="150" width="150" th:src="@{/images/home_d20.png}">
+        <p class="textBlock" align="left">
+            I created this web application to practice the basics of Spring MVC framework.
+            <br><br>
+            It is supposed to serve as a tool for Dungeon Masters (hence the name) running classic fantasy
+            Role Playing Games (eg. Dungeons&Dragons)
+            <br><br>
+            Following tools were used in creating this application:<br>
+            - Java 11<br>
+            - HTML/CSS<br>
+            - JavaScript<br>
+            - Thymeleaf<br>
+            - Spring MVC framework<br>
+            - Spring Boot Initializr<br>
+            - Maven<br>
+            - Intellij IDEA IDE<br>
+            - Visual Studio Code editor
+        </p>
+    </div>
+</body>
+
+
+
+</html>
